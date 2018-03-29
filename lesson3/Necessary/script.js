@@ -80,11 +80,11 @@ function discountSystem() {
 //discountSystem();
 
 function getEmployers() {
-	for (let i = 1; i < 5; i++){
-		mainList.employers[i] = prompt('Введите имя нового сотрудника(' + i +')');
+	for (let i = 0; i < 4; i++){
+		mainList.employers[i + 1] = prompt('Введите имя нового сотрудника(' + (i + 1) +')');
 
-		while(mainList.employers[i] == null || mainList.employers[i] == ''){
-			mainList.employers[i] = prompt('Введите имя нового сотрудника(' + i +')');
+		while(mainList.employers[i + 1] == null || mainList.employers[i + 1] == ''){
+			mainList.employers[i + 1] = prompt('Введите имя нового сотрудника(' + (i + 1) +')');
 		}
 	}
 }
