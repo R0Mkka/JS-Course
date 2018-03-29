@@ -80,24 +80,13 @@ function discountSystem() {
 //discountSystem();
 
 function getEmployers() {
-	let localName = '',
-		numbers = [],
-		names = [];
+	for (let i = 1; i < 5; i++){
+		mainList.employers[i] = prompt('Введите имя нового сотрудника(' + i +')');
 
-	for (let i = 0; i < 4; i++){
-		localName = prompt('Введите имя нового сотрудника(' + (i + 1) +')');
-
-		while(localName == null || localName == ''){
-			localName = prompt('Введите имя нового сотрудника(' + (i + 1) +')');
+		while(mainList.employers[i] == null || mainList.employers[i] == ''){
+			mainList.employers[i] = prompt('Введите имя нового сотрудника(' + i +')');
 		}
-
-		names[i] = localName;
-		numbers[i] = i + 1;
 	}
-
-	numbers.forEach(function(val) {mainList.employers[val] = names[val - 1]; });
-
-	console.log(mainList.employers);
 }
 
 getEmployers();
