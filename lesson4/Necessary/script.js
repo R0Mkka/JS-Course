@@ -61,7 +61,7 @@ mainList = {
 			price = parseFloat(prompt('Введите цену товара:', ''));
 		}
 
-		if(mainList.discount == true) price *= 0.8;
+		if(mainList.discount) price *= 0.8;
 
 		console.log(price);
 	},
