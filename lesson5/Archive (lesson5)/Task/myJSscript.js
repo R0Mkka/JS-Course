@@ -13,12 +13,12 @@ fifth.textContent = 'Пятый пункт';
 itemsParent.appendChild(fifth);
 
 document.body.style.backgroundImage = "url('img/apple_true.jpg')";
-document.title = 'Мы продаем подлинную технику Apple.';
+
+document.getElementById('title').innerHTML = 'Мы продаем только подлинную технику Apple';
 
 let adv = document.querySelector('.adv');
-let advParent = adv.parentNode;
 
-advParent.removeChild(adv);
+adv.remove();
 
 let attitude = prompt("Как вы относитесь к технике Apple?", "");
 
