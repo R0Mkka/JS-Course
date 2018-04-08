@@ -1,5 +1,5 @@
 class options{
-	constructor(height, width, bgColor, fontSize, textAlign){
+	constructor(height = 200, width = 200, bgColor = 'green', fontSize = 18, textAlign = 'center'){
 		this.height = height;
 		this.width = width;
 		this.bgColor = bgColor;
@@ -25,6 +25,6 @@ class options{
 	}
 }
 
-let obj = new options(400, 800, 'red', 50, 'center');
+let obj = new options(400, 800, 'red', 50, 'left');
 
 obj.newDiv();
