@@ -1,8 +1,35 @@
 window.addEventListener('DOMContentLoaded', function() {
 
+	// Modal
+
+	let more = document.querySelector('.more'),
+		overlay = document.querySelector('.overlay'),
+		close = document.querySelector('.popup-close'),
+		popup = document.querySelector('.popup');
+
+		overlay.classList.remove('fade');
+		popup.classList.add('appearance'); // .appearance описывается в файле css сразу после .fade
+
+	more.addEventListener('click', function(){
+		this.classList.add('more-splash');
+		overlay.style.display = 'block';
+		document.body.style.overflow = 'hidden';
+	});
+
+	close.addEventListener('click', function(){
+		overlay.style.display = 'none';
+		more.classList.remove('more-splash');
+		document.body.style.overflow = '';
+		img.setAttribute('src', '');
+	});
+
+// Main part
+
 	let tab = document.getElementsByClassName('info-header-tab'),
 		tabContent = document.getElementsByClassName('info-tabcontent'),
-		info = document.getElementsByClassName('info-header')[0];
+		info = document.getElementsByClassName('info-header')[0],
+		description = document.getElementsByClassName('description');
+		descriptionBtn = document.getElementsByClassName('description-btn');
 
 	function hideTabContent(a){
 		for (let i = a; i < tabContent.length; i++){
@@ -32,6 +59,21 @@ window.addEventListener('DOMContentLoaded', function() {
 			}
 		}
 	});
+
+	for (let i = 0; i < description.length; i++){
+		description[i].addEventListener('click', function (event){
+			let target = event.target;
+			if (target.className == 'description-btn'){
+				for (let j = 0; j < descriptionBtn.length; j++){
+					if (target == descriptionBtn[j]) {
+						overlay.style.display = 'block';
+						document.body.style.overflow = 'hidden';
+						break;
+					}
+				}
+			}
+		});
+	}
 
 // timer
 
@@ -119,7 +161,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	};
 	setClock('timer', deadline);
 
-// плавное пережвижение к пункту меню
+// плавное передвижение к пункту меню
 
 	let headMenu = document.getElementsByClassName('container')[0];
 	let menuFields = document.getElementsByClassName('menu-item');
@@ -164,27 +206,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		}
 	});
 
-// Modal
-
-	let more = document.querySelector('.more'),
-		overlay = document.querySelector('.overlay'),
-		close = document.querySelector('.popup-close'),
-		popup = document.querySelector('.popup');
-
-		overlay.classList.remove('fade');
-		popup.classList.add('appearance'); // .appearance описывается в файле css сразу после .fade
-
-	more.addEventListener('click', function(){
-		this.classList.add('more-splash');
-		overlay.style.display = 'block';
-		document.body.style.overflow = 'hidden';
-	});
-
-	close.addEventListener('click', function(){
-		overlay.style.display = 'none';
-		more.classList.remove('more-splash');
-		document.body.style.overflow = '';
-	});
+	let img = document.createElement('img');
+  	
+  	img.style.cssText = "background: no-repeat; max-width: 150px; padding-top: 10px;";
 
 	//form
 
@@ -202,10 +226,6 @@ window.addEventListener('DOMContentLoaded', function() {
 	let form = document.getElementsByClassName('main-form')[0],
 		input = form.getElementsByTagName('input'),
 		statusMessage = document.createElement('div');
-
-	let img = document.createElement('img');
-  	
-  	img.style.cssText = "background: no-repeat; max-width: 150px; padding-top: 10px;";
 
 	form.addEventListener('submit', function(event) {
 		event.preventDefault();
@@ -226,13 +246,11 @@ window.addEventListener('DOMContentLoaded', function() {
 			if(request.readyState < 4){
 				img.setAttribute('src', picture.loading);
 			} else if (request.readyState === 4) {
-				if (request.status == 200 && request.status < 300) {
+				if (request.status == 200) {
 					img.setAttribute('src', picture.success);
-					removeImage();
 				}
 				else {
 					img.setAttribute('src', picture.failure);
-					removeImage();
 				}
 			}
 		}
@@ -263,7 +281,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			if(request.readyState < 4){
 				img.setAttribute('src', picture.loading);
 			} else if (request.readyState === 4) {
-				if (request.status == 200 && request.status < 300) {
+				if (request.status == 200) {
 					img.setAttribute('src', picture.success);
 					removeImage();
 				}
