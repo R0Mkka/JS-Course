@@ -256,7 +256,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-		let formData = new FormData(form);
+		let formData = new FormData(contactForm);
 		request.send(formData);
 				
 		request.onreadystatechange = function() {
