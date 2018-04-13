@@ -1,10 +1,6 @@
 $(document).ready(function() {
 
-	$('.header-menu a:eq(1)').on('click', modalActions);
-
-	$('.main_btna').on('click', modalActions);
-
-	$('.main_btn').on('click', modalActions);
+	$('.header-menu a:eq(1), .main_btna, .main_btn').on('click', modalActions);
 
 	$('.cross').on('click', function(){
 		$('.overlay').fadeOut('slow');
