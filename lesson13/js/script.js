@@ -212,12 +212,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	//form
 
-/*	let message = new Object();
-	message.loading = "Пожалуйста, подождите. Идет загрузка...";
-	message.successMainForm = "Спасибо! В скором времени мы с вами свяжемся";
-	message.failure = "При отправке возникла ошибка...";
-	message.successAdditionalForm = "Спасибо! Проверьте свою почту и ждите звонка :)";*/
-
 	let picture = new Object();
 	picture.loading = "icons/message/message_sending.png";
 	picture.success = "icons/message/message_ok.png";
@@ -481,7 +475,12 @@ window.addEventListener('DOMContentLoaded', function() {
 		
 		peopleAmount = +this.value;
 		finalPrice = (daysAmount * 4000 + peopleAmount * 2000);
-		if (days.value == '' || peopleAmount < 1 || daysAmount < 1){
+		if (days.value == '' ||
+			peopleAmount < 1 || 
+			daysAmount < 1 ||
+			parseFloat(peopleAmount)%parseInt(peopleAmount) > 0 ||
+			parseFloat(daysAmount)%parseInt(daysAmount) > 0){
+
 			zeroAnimation();
 			total.innerHTML = 0;
 		} else {
@@ -495,7 +494,12 @@ window.addEventListener('DOMContentLoaded', function() {
 		
 		daysAmount = +this.value;
 		finalPrice = (daysAmount * 4000 + peopleAmount * 2000);
-		if (days.value == '' || daysAmount < 1 || peopleAmount < 1){
+		if (people.value == '' ||
+			peopleAmount < 1 || 
+			daysAmount < 1 ||
+			parseFloat(peopleAmount)%parseInt(peopleAmount) > 0 ||
+			parseFloat(daysAmount)%parseInt(daysAmount) > 0){
+
 			zeroAnimation();
 			total.innerHTML = 0;
 		} else {
@@ -507,7 +511,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	places.addEventListener('change', function() {
 
-		if (days.value == '' || people.value == '' || peopleAmount < 1 || daysAmount < 1){
+		if (days.value == '' ||
+			people.value == '' ||
+			peopleAmount < 1 || 
+			daysAmount < 1 ||
+			parseFloat(peopleAmount)%parseInt(peopleAmount) > 0 ||
+			parseFloat(daysAmount)%parseInt(daysAmount) > 0){
+
 			zeroAnimation();
 			total.innerHTML = 0;
 		} else {
