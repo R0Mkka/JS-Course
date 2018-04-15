@@ -16,7 +16,12 @@ function calculator() {
 		
 		peopleAmount = +this.value;
 		finalPrice = (daysAmount * 4000 + peopleAmount * 2000);
-		if (days.value == '' || peopleAmount < 1 || daysAmount < 1){
+		if (days.value == '' ||
+			peopleAmount < 1 || 
+			daysAmount < 1 ||
+			parseFloat(peopleAmount)%parseInt(peopleAmount) > 0 ||
+			parseFloat(daysAmount)%parseInt(daysAmount) > 0){
+
 			zeroAnimation();
 			total.innerHTML = 0;
 		} else {
@@ -30,7 +35,12 @@ function calculator() {
 		
 		daysAmount = +this.value;
 		finalPrice = (daysAmount * 4000 + peopleAmount * 2000);
-		if (days.value == '' || daysAmount < 1 || peopleAmount < 1){
+		if (people.value == '' ||
+			peopleAmount < 1 || 
+			daysAmount < 1 ||
+			parseFloat(peopleAmount)%parseInt(peopleAmount) > 0 ||
+			parseFloat(daysAmount)%parseInt(daysAmount) > 0){
+
 			zeroAnimation();
 			total.innerHTML = 0;
 		} else {
@@ -42,7 +52,13 @@ function calculator() {
 
 	places.addEventListener('change', function() {
 
-		if (days.value == '' || people.value == '' || peopleAmount < 1 || daysAmount < 1){
+		if (days.value == '' ||
+			people.value == '' ||
+			peopleAmount < 1 || 
+			daysAmount < 1 ||
+			parseFloat(peopleAmount)%parseInt(peopleAmount) > 0 ||
+			parseFloat(daysAmount)%parseInt(daysAmount) > 0){
+
 			zeroAnimation();
 			total.innerHTML = 0;
 		} else {
